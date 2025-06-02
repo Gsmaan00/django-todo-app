@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+</head>
+<body>
+    <h1>My To-Do List</h1>
+    {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Enter task..." required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <form method="POST" action="{% url 'toggle' task.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="checkbox" onChange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                </form>
+                <span {% if task.completed %}style="text-decoration: line-through;"{% endif %}>
+                    {{ task.title }}
+                </span>
+                - <a href="{% url 'delete' task.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

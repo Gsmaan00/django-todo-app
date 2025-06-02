@@ -1,7 +1,3 @@
-# 📝 Django ToDo App
-
-Yeh ek simple Django-based ToDo app hai jisme users tasks ko create, update, delete kar sakte hain.
-
 ## 🚀 Features
 - Task create/update/delete
 - User login/logout
@@ -11,7 +7,7 @@ Yeh ek simple Django-based ToDo app hai jisme users tasks ko create, update, del
 - Django 5.x
 - SQLite3
 
-## ▶️ Run karne ke steps:
+## ▶️ Run Steps:
 
 ```bash
 git clone https://github.com/Gsmaan00/django-todo-app.git
